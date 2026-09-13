@@ -52,7 +52,8 @@ The KY-038 sound sensor sends analog sound levels to the Arduino Nano through A0
 The schematic illustrates the complete electrical connections of the sound-controlled fan system. The KY-038 sensor provides analog sound input to the Arduino Nano, which processes the signal and displays the sound level on the I2C LCD. Based on the sound intensity, the Nano controls the fan through a 2N2222A transistor driver, while the red and green LEDs indicate the fan’s OFF and ON states. The fan is powered by a separate 3.7V battery, with a common ground shared between the battery and Arduino.
 
 # Build Photos
-![Components](Add photo of your components here)
+<img width="1024" height="1024" alt="Components" src="https://github.com/user-attachments/assets/74ca938c-4a6d-447c-a7c1-bbccfbc93471" />
+
 Components Used
 Arduino Nano
 KY-038 sound sensor module
@@ -82,13 +83,12 @@ Build Steps
 11.Observe the sensor values in the Serial Monitor and adjust the sound threshold in the code for reliable operation.
 
 <img width="1280" height="568" alt="WhenFANturnsOn" src="https://github.com/user-attachments/assets/929db2c8-286b-46d0-af6b-7f2b128c75f1" />
-
-*Explain the final build*
+The final prototype, Huff-N-Puff, is a deliberately useless yet entertaining automation system where the fan responds to human sound instead of temperature. The KY-038 detects sound intensity, the Arduino Nano processes it, and the fan speed increases as the surrounding noise gets louder. The LCD displays the sound level and fan status, while the LEDs provide visual feedback—turning everyday noise into completely unnecessary cooling!
 
 ### Project Demo
 # Video
 https://drive.google.com/file/d/1am_AOcJioeIADStrS_jLeS763Ll0K5Xj/view?usp=sharing
-*Explain what the video demonstrates*
+The prototype was first powered on using the switch, after which the operating instructions were displayed and explained. To demonstrate the working principle, air was blown toward the sound sensor, causing the sensor to detect the increased sound intensity and activate the fan. When the airflow and sound input were stopped, the fan also stopped rotating. Finally, loud speech was produced near the sensor to demonstrate that the fan could also respond to human voice and surrounding noise.
 
 
 
