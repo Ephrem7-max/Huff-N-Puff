@@ -6,35 +6,38 @@
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: CopyPaste
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: Irene Sara Philippose - School Of Engineering,CUSAT 
+- Member 2: Ephrem Shajan - School Of Engineering 
 
 ### Project Description
-[2-3 lines about what your project does]
+An Arduino-powered voice-reactive DC fan controller that dynamically adjusts a cooling fan's RPM based on acoustic volume captured by a KY-038 microphone sensor, translating spoken words into real-time mechanical airflow using an NPN transistor driver.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Manual fan switches require far too much finger exertion, and sitting in silent rooms while working is an unacceptably mundane experience that lacks continuous, speech-activated cooling feedback.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+By continuously monitoring the ambient room noise and speech volume through an analog microphone module, this system uses peak-to-peak amplitude calculations to ramp up a DC axial fan whenever you speak, shouting your way into a personalized, voice-driven breeze.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- C++ (Arduino IDE)
+- Arduino Core Libraries
+- Analog Input Processing & PWM Signal    Mapping Algorithms
+- Arduino Serial Monitor for Calibration
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- Arduino Nano or Uno (CH340 Clone) with USB Cable
+- KY-038 Sound / Microphone Sensor Module (Analog Out)
+- Mini 5V or 12V DC Cooling Fan (Axial)
+- 2N2222 NPN Transistor
+- 1N4007 Flyback Diode
+- 1k Ohm Resistor (1/4 Watt)
+- Breadboard (400 or 830 tie-points) & Jumper Wires Pack
 
 ### Implementation
 For Software:
