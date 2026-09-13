@@ -14,13 +14,13 @@
 - Member 2: Ephrem Shajan - School Of Engineering 
 
 ### Project Description
-An Arduino-powered voice-reactive DC fan controller that dynamically adjusts a cooling fan's RPM based on acoustic volume captured by a KY-038 microphone sensor, translating spoken words into real-time mechanical airflow using an NPN transistor driver.
+An Arduino-powered acoustic-reactive DC fan controller that dynamically adjusts a cooling fan's RPM based on sound and wind pressure captured by a KY-038 microphone sensor, translating spoken words or physical blowing into real-time mechanical airflow using an NPN transistor driver.
 
 ### The Problem (that doesn't exist)
-Manual fan switches require far too much finger exertion, and sitting in silent rooms while working is an unacceptably mundane experience that lacks continuous, speech-activated cooling feedback.
+Manual fan switches require far too much finger exertion, and the traditional human method of blowing on oneself to cool down is terribly inefficient. Furthermore, sitting in a silent room while working is an unacceptably mundane experience that fails to force you to actively earn your own comfort.
 
 ### The Solution (that nobody asked for)
-By continuously monitoring the ambient room noise and speech volume through an analog microphone module, this system uses peak-to-peak amplitude calculations to ramp up a DC axial fan whenever you speak, shouting your way into a personalized, voice-driven breeze.
+By continuously monitoring acoustic and wind input through an analog microphone module, this system uses peak-to-peak amplitude calculations to ramp up a DC axial fan based on your vocal or respiratory exertion. Whether you are loudly ranting at your monitor or literally huffing and puffing directly into the sensor, you must actively yell, clap, or blow your way to a personalized breeze
 
 ## Technical Details
 ### Technologies/Components Used
