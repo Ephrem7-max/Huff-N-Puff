@@ -92,6 +92,8 @@ The prototype was first powered on using the switch, after which the operating i
 
 
 
+🌐 **Live Project Landing Page:** [https://your-username.github.io/Huff-N-Puff/](https://your-username.github.io/Huff-N-Puff/)
+
 ## Team Contributions
 - IRENE: Schematics, Circuit and Integration
 - EPHREM: Coding and Error handling
