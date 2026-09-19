@@ -14,6 +14,7 @@
 - Member 2: Ephrem Shajan - School Of Engineering 
 
 ### Project Description
+“Kaattu Vendavante, Kaattu Kalayunna Yanthram!” is a hilariously unnecessary machine that turns your voice, claps, and even a simple blow into fan movement. The most unnecessarily dramatic fan, it rewards noise with rotation and silence with stillness—proving that sometimes, the more you disturb the peace, the more you get cooled!
 An Arduino-powered acoustic-reactive DC fan controller that dynamically adjusts a cooling fan's RPM based on sound and wind pressure captured by a KY-038 microphone sensor, translating spoken words or physical blowing into real-time mechanical airflow using an NPN transistor driver.
 
 ### The Problem (that doesn't exist)
