@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUFF-N-PUFF - Project Documentation & Journal</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #333333;
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --secondary-accent: #e74c3c;
+            --card-bg: #ffffff;
+            --border-color: #dcdde1;
+        }
+        body {
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #34495e);
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+        }
+        .tagline {
+            font-size: 1.3rem;
+            color: #bdc3c7;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .team-info {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px 25px;
+            border-radius: 4px;
+            text-align: left;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        h3 {
+            color: var(--accent-color);
+            margin-top: 25px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        p, li {
+            margin-bottom: 12px;
+        }
+        ul, ol {
+            padding-left: 25px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: var(--secondary-accent);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 15px 0;
+            border: 1px solid var(--border-color);
+        }
+        .full-scale-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        /* Must Watch Badge Styling */
+        .must-watch-badge {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 800;
+            padding: 4px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 12px rgba(231, 76, 60, 0.6);
+            animation: pulse-glow 1.8s infinite;
+        }
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 6px rgba(231, 76, 60, 0.4);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 18px rgba(231, 76, 60, 0.9);
+                transform: scale(1.04);
+            }
+            100% {
+                box-shadow: 0 0 6px rgba(231, 76, 60, 0.4);
+                transform: scale(1);
+            }
+        }
+        /* Media Grids */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .photo-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin: 0;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: #000;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .media-title {
+            text-align: center;
+            font-size: 0.95rem;
+            margin-top: 10px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        /* Expand & Highlight Interactive Styling */
+        .video-card-expandable {
+            transition: all 0.4s ease;
+            border-radius: 8px;
+            padding: 8px;
+        }
+        .video-card-expandable.expanded {
+            grid-column: 1 / -1;
+            background: #ffffff;
+            border: 2px solid var(--secondary-accent);
+            box-shadow: 0 0 25px rgba(231, 76, 60, 0.4);
+            padding: 15px;
+        }
+        .enlarge-btn {
+            display: block;
+            margin: 10px auto 0 auto;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+        .enlarge-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .video-card-expandable.expanded .enlarge-btn {
+            background-color: var(--secondary-accent);
+        }
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--primary-color);
+            color: #ffffff;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>HUFF-N-PUFF</h1>
+        <div class="tagline">Blow Hard to Earn Your Air!</div>
+        <div class="team-info">
+            <strong>Team Name:</strong> CopyPaste<br>
+            <strong>Team Lead:</strong> Irene Sara Philippose - School Of Engineering, CUSAT<br>
+            <strong>Member:</strong> Ephrem Shajan - School Of Engineering
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="overview">
+            <h2>Project Overview</h2>
+            <p><strong>Project Description:</strong> An Arduino-powered acoustic-reactive DC fan controller that dynamically adjusts a cooling fan's RPM based on sound and wind pressure captured by a KY-038 microphone sensor, translating spoken words or physical blowing into real-time mechanical airflow using an NPN transistor driver.</p>
+            
+            <h3>The Problem (that doesn't exist)</h3>
+            <p>Manual fan switches require far too much finger exertion, and the traditional human method of blowing on oneself to cool down is terribly inefficient. Furthermore, sitting in a silent room while working is an unacceptably mundane experience that fails to force you to actively earn your own comfort.</p>
+
+            <h3>The Solution (that nobody asked for)</h3>
+            <p>By continuously monitoring acoustic and wind input through an analog microphone module, this system uses peak-to-peak amplitude calculations to ramp up a DC axial fan based on your vocal or respiratory exertion. Whether you are loudly ranting at your monitor or literally huffing and puffing directly into the sensor, you must actively yell, clap, or blow your way to a personalized breeze.</p>
+        </section>
+
+        <section id="technical-details">
+            <h2>Technical Details</h2>
+            <h3>Technologies & Components</h3>
+            <ul>
+                <li><strong>Software:</strong> C++ (Arduino IDE), Arduino Core Libraries, Analog Input Processing & PWM Signal Mapping Algorithms, Arduino Serial Monitor for Calibration</li>
+                <li><strong>Hardware:</strong> Arduino Nano or Uno (CH340 Clone) with USB Cable, KY-038 Sound / Microphone Sensor Module (Analog Out), Mini 5V or 12V DC Cooling Fan (Axial), 2N2222 NPN Transistor, 1N4007 Flyback Diode, 1k Ohm Resistor (1/4 Watt), Breadboard & Jumper Wires Pack</li>
+            </ul>
+        </section>
+
+        <section id="implementation">
+            <h2>Schematic & Circuit</h2>
+            <p>The KY-038 sound sensor sends analog sound levels to the Arduino Nano through A0. The Nano displays the readings on the I2C LCD via A4/A5 and controls the fan through a 2N2222A transistor using D9. The fan is powered separately by a 3.7V battery, while red and green LEDs connected to D7 and D6 indicate fan OFF and ON status respectively. All components share a common ground.</p>
+            
+            <div class="grid-container">
+                <div>
+                    <img src="https://github.com/user-attachments/assets/3ae0b23e-cfe8-49c5-bb4a-c9b0d3f014b8" alt="Circuit Diagram">
+                    <div class="media-title">Circuit Diagram</div>
+                </div>
+                <div>
+                    <img src="https://github.com/user-attachments/assets/5d15a3f5-0252-459f-80a0-fe1ea5e9153b" alt="Schematic Diagram">
+                    <div class="media-title">Full Schematic</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="build-steps">
+            <h2>Build Steps</h2>
+            <ol>
+                <li>Prepare the components: Gather the Arduino Nano, KY-038 sound sensor, I2C LCD, 2N2222A transistor, fan, battery, LEDs, resistors, breadboard, and jumper wires.</li>
+                <li>Connect the Arduino Nano to the laptop through USB to power the Arduino, sensor, LCD, and LEDs.</li>
+                <li>Connect Arduino GND to the breadboard ground rail. Connect the sensor GND, LCD GND, transistor emitter, battery negative, and LED cathodes to this common ground.</li>
+                <li>Connect KY-038 VCC to 5V, GND to GND, and AO to Arduino A0 (leave DO disconnected).</li>
+                <li>Connect LCD VCC to 5V, GND to GND, SDA to A4, and SCL to A5.</li>
+                <li>Connect the fan’s positive wire to the 3.7V battery positive terminal, and the negative wire to the collector of the 2N2222A transistor (emitter to battery negative).</li>
+                <li>Connect Arduino D9 to the transistor base through a 220Ω resistor, ensuring a common ground.</li>
+                <li>Connect the green LED to D6 and the red LED to D7 through 220Ω resistors to GND.</li>
+                <li>Program the Arduino to read sound intensity, display it on the LCD, vary fan speed via PWM, and manage LED indicators.</li>
+                <li>Test the setup: blowing or making noise turns on the green LED and activates the fan; quiet conditions turn on the red LED and stop the fan.</li>
+                <li>Observe sensor values in the Serial Monitor and calibrate sound thresholds for reliable operation.</li>
+            </ol>
+        </section>
+
+        <section id="project-gallery">
+            <h2>Project Gallery</h2>
+            
+            <img src="images/image1.jpeg" alt="Full Build Photo 1" class="full-scale-img">
+            <img src="images/image2.jpeg" alt="Full Build Photo 2" class="full-scale-img">
+
+            <div class="photo-gallery">
+                <img src="images/photo1.jpg" alt="Project Photo 1">
+                <img src="images/photo2.jpg" alt="Project Photo 2">
+                <img src="images/photo3.jpg" alt="Project Photo 3">
+                <img src="images/photo4.jpg" alt="Project Photo 4">
+                <img src="images/photo5.jpg" alt="Project Photo 5">
+            </div>
+        </section>
+
+        <section id="video-logs">
+            <h2>Video Documentation</h2>
+            
+            <h3>Final Project Demo</h3>
+            <p>The prototype was first powered on using the switch, and instructions were displayed. Blowing air or speaking near the sound sensor increased sound intensity, activating the fan. When sound input stopped, the fan halted.</p>
+            <div class="grid-container" style="grid-template-columns: 1fr; max-width: 700px; margin: 0 auto;">
+                <div>
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1am_AOcJioeIADStrS_jLeS763Ll0K5Xj/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Building Time</h3>
+            <div class="grid-container">
+                <div>
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1MsYZ77WGlcUjsCGNAxBUqiautfsVmD9p/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-title">Build Phase - Part 1</div>
+                </div>
+                <div>
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1KzUBm3d4khRwbJBl-_H5fHRuoDRo5bB4/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-title">Build Phase - Part 2</div>
+                </div>
+                <div>
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1Ot3jFAw8I5xDcdFGjhqnspwZ9CYfQdVa/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-title">Build Phase - Part 3</div>
+                </div>
+            </div>
+
+            <h3>
+                Additional Build Videos 
+                <span class="must-watch-badge">MUST WATCH</span>
+            </h3>
+            <div class="grid-container">
+                <div>
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1kNX_AMpqv_l4PrKISawukPGcX5Ph_zgR/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="video-card-expandable">
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1IDX5UPRTjgt8ZXYv6CWlKEtmoJum8_QE/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                    <button class="enlarge-btn" onclick="toggleEnlarge(this)">🔍 Enlarge & Highlight</button>
+                </div>
+                <div>
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1dCD5F2IQrlBmQgLeesLCSmD0njUdVBYJ/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <h3>
+                Presentations 
+                <span class="must-watch-badge">MUST WATCH</span>
+            </h3>
+            <div class="grid-container">
+                <div>
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1inltZHIb3wzA9W45dc6FbsvNYKgTS9tp/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-title">Presentation - Part 1</div>
+                </div>
+                <div class="video-card-expandable">
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1PnhqtCYIyO49i5KN9c2RKjjjJf6Q8pV7/preview" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                    <div class="media-title">Presentation - Part 2</div>
+                    <button class="enlarge-btn" onclick="toggleEnlarge(this)">🔍 Enlarge & Highlight</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contributions">
+            <h2>Team Contributions</h2>
+            <ul>
+                <li><span class="highlight">IRENE:</span> Schematics, Circuit, and Integration</li>
+                <li><span class="highlight">EPHREM:</span> Coding and Error Handling</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <div>Made at TinkerHub Useless Projects</div>
+    </footer>
+
+    <script>
+        function toggleEnlarge(btn) {
+            const card = btn.closest('.video-card-expandable');
+            card.classList.toggle('expanded');
+            if (card.classList.contains('expanded')) {
+                btn.innerHTML = '✖ Shrink Video';
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                btn.innerHTML = '🔍 Enlarge & Highlight';
+            }
+        }
+    </script>
+
+</body>
+</html>
